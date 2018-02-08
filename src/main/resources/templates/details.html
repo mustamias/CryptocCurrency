@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymelaef/layout"
+      layout:decorator="tmpl1">
+<head>
+<meta charset="utf-8"/>
+<title>Crypto Currency Application</title>
+</head>
+<body>
+
+
+<div layout:fragment = "content" >
+
+
+
+<div><a th:href="@{/details/(par=${curusd.id})}">Refrech</a></div>
+
+<div class="panel panel-primary" th:if="${curusd}">
+<div class="panel-heading">  Currency Details</div>
+<div class="panel-body"></div>
+
+<table class="table table-striped">
+<tr>
+<th> Rank</th><th> Name</th><th> Symbol</th><th> Price</th> <th> 24 hour change</th> <th> Market Cap</th> <th> price Bitcoin</th> 
+<th> 1h change</th><th> 24h change</th><th> 7d change</th><th> Total</th><th> Available Supply</th>
+
+</tr>
+<tr th:each="cur:${curusd}" >
+<td  >  <a th:href="@{/details/(par=${cur.id})}"> <span th:text="${cur.rank}"></span> </a>  </td>
+<td th:text="${cur.name}"> </td><td th:text="${cur.symbol}"> </td><td th:text="${cur.price_usd}"> </td><td th:text="${cur.h24_volume_usd}"> </td>
+<td th:text="${cur.market_cap_usd}"> </td><td th:text="${cur.price_btc}"> </td><td th:text="${cur.percent_change_1h}"> </td>
+
+<td th:text="${cur.percent_change_24h}"> </td><td th:text="${cur.percent_change_7d}"> </td><td th:text="${cur.total_supply}"> </td>
+ <td th:text="${cur.available_supply}"> </td>
+
+</tr>
+</table>
+<div th:if="${err}" th:text="${err.message}"></div>
+</div>
+
+
+
+
+
+
+
+<div class="panel panel-primary" th:if="${cureur}">
+<div class="panel-heading">  Currency Details</div>
+<div class="panel-body"></div>
+
+<table class="table table-striped">
+<tr>
+<th> Rank</th><th> Name</th><th> Symbol</th><th> Price</th> <th> 24 hour change</th> <th> Market Cap</th> <th> price Bitcoin</th> 
+<th> 1h change</th><th> 24h change</th><th> 7d change</th><th> Total</th><th> Available Supply</th>
+
+</tr>
+<tr th:each="cur:${curusd}" >
+<td  >  <a th:href="@{/details/(par=${cur.id})}"> <span th:text="${cur.rank}"></span> </a>  </td>
+<td th:text="${cur.name}"> </td><td th:text="${cur.symbol}"> </td><td th:text="${cur.price_eur}"> </td><td th:text="${cur.h24_volume_eur}"> </td>
+<td th:text="${cur.market_cap_eur}"> </td><td th:text="${cur.price_btc}"> </td><td th:text="${cur.percent_change_1h}"> </td>
+
+<td th:text="${cur.percent_change_24h}"> </td><td th:text="${cur.percent_change_7d}"> </td><td th:text="${cur.total_supply}"> </td>
+ <td th:text="${cur.available_supply}"> </td>
+
+</tr>
+</table>
+<div th:if="${err}" th:text="${err.message}"></div>
+</div>
+
+
+
+<div class="panel panel-primary" th:if="${curcny}">
+<div class="panel-heading">  Currency Details</div>
+<div class="panel-body"></div>
+
+<table class="table table-striped">
+<tr>
+<th> Rank</th><th> Name</th><th> Symbol</th><th> Price</th> <th> 24 hour change</th> <th> Market Cap</th> <th> price Bitcoin</th> 
+<th> 1h change</th><th> 24h change</th><th> 7d change</th><th> Total</th><th> Available Supply</th>
+
+</tr>
+<tr th:each="cur:${curcny}" >
+<td  >  <a th:href="@{/details/(par=${cur.id})}"> <span th:text="${cur.rank}"></span> </a>  </td>
+<td th:text="${cur.name}"> </td><td th:text="${cur.symbol}"> </td><td th:text="${cur.price_cny}"> </td><td th:text="${cur.h24_volume_eur}"> </td>
+<td th:text="${cur.market_cap_cny}"> </td><td th:text="${cur.price_btc}"> </td><td th:text="${cur.percent_change_1h}"> </td>
+
+<td th:text="${cur.percent_change_24h}"> </td><td th:text="${cur.percent_change_7d}"> </td><td th:text="${cur.total_supply}"> </td>
+ <td th:text="${cur.available_supply}"> </td>
+
+</tr>
+</table>
+<div th:if="${err}" th:text="${err.message}"></div>
+</div>
+
+
+
+</div>
+
+
+
+
+</body>
+</html>

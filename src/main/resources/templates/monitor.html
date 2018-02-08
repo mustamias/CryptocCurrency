@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymelaef/layout"
+      layout:decorator="tmpl1">
+<head>
+<meta charset="utf-8"/>
+<title>Crypto Currency Application</title>
+</head>
+<body>
+
+
+<div layout:fragment = "content" >
+
+
+<div><a th:href="@{/}">Refrech</a></div>
+<div class="panel panel-primary" th:if="${listcur}">
+<div class="panel-heading"> TOP 100 Currency</div>
+<div class="panel-body"></div>
+
+<table class="table table-striped">
+<tr>
+<th> Symbol</th><th> Rank</th><th> Price</th> <th> 24 hour change</th> 
+
+</tr>
+<tr th:each="cur:${listcur}" >
+<td  >  <a th:href="@{/details/(par=${cur.id})}"> <span th:text="${cur.symbol}"></span> </a>  </td>
+<td th:text="${cur.rank}"> </td><td th:text="${cur.price_usd}"> </td><td th:text="${cur.h24_volume_usd}"> </td>
+
+
+</tr>
+</table>
+<div th:if="${err}" th:text="${err.message}"></div>
+</div>
+
+
+
+<div class="panel panel-primary" th:if="${listcureur}">
+<div class="panel-heading"> TOP 100 Currency</div>
+<div class="panel-body"></div>
+
+<table class="table table-striped">
+<tr>
+<th> Symbol</th><th> Rank</th><th> Price</th> <th> 24 hour change</th> 
+
+</tr>
+<tr th:each="cur:${listcureur}" >
+<td  >  <a th:href="@{/details/(par=${cur.id})}"> <span th:text="${cur.symbol}"></span> </a>  </td>
+<td th:text="${cur.rank}"> </td><td th:text="${cur.price_eur}"> </td><td th:text="${cur.h24_volume_eur}"> </td>
+
+
+</tr>
+</table>
+<div th:if="${err}" th:text="${err.message}"></div>
+</div>
+
+
+
+
+<div class="panel panel-primary" th:if="${listcurcny}">
+<div class="panel-heading"> TOP 100 Currency</div>
+<div class="panel-body"></div>
+
+<table class="table table-striped">
+<tr>
+<th> Symbol</th><th> Rank</th><th> Price</th> <th> 24 hour change</th> 
+
+</tr>
+<tr th:each="cur:${listcurcny}" >
+<td  >  <a th:href="@{/details/(par=${cur.id})}"> <span th:text="${cur.symbol}"></span> </a>  </td>
+<td th:text="${cur.rank}"> </td><td th:text="${cur.price_cny}"> </td><td th:text="${cur.h24_volume_cny}"> </td>
+
+
+</tr>
+</table>
+<div th:if="${err}" th:text="${err.message}"></div>
+</div>
+
+
+</div>
+
+
+
+
+</body>
+</html>
