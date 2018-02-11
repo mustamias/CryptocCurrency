@@ -13,9 +13,10 @@
 
 
 
-<div><a th:href="@{/details/(par=${curusd.id})}">Refrech</a></div>
+
 
 <div class="panel panel-primary" th:if="${curusd}">
+<div><a th:href="@{/details/(par=${curusd.id})}">Refrech</a></div>
 <div class="panel-heading">  Currency Details</div>
 <div class="panel-body"></div>
 
@@ -45,6 +46,7 @@
 
 
 <div class="panel panel-primary" th:if="${cureur}">
+<div><a th:href="@{/details/(par=${cureur.id})}">Refrech</a></div>
 <div class="panel-heading">  Currency Details</div>
 <div class="panel-body"></div>
 
@@ -54,7 +56,7 @@
 <th> 1h change</th><th> 24h change</th><th> 7d change</th><th> Total</th><th> Available Supply</th>
 
 </tr>
-<tr th:each="cur:${curusd}" >
+<tr th:each="cur:${cureur}" >
 <td  >  <a th:href="@{/details/(par=${cur.id})}"> <span th:text="${cur.rank}"></span> </a>  </td>
 <td th:text="${cur.name}"> </td><td th:text="${cur.symbol}"> </td><td th:text="${cur.price_eur}"> </td><td th:text="${cur.h24_volume_eur}"> </td>
 <td th:text="${cur.market_cap_eur}"> </td><td th:text="${cur.price_btc}"> </td><td th:text="${cur.percent_change_1h}"> </td>
@@ -70,6 +72,7 @@
 
 
 <div class="panel panel-primary" th:if="${curcny}">
+<div><a th:href="@{/details/(par=${curcny.id})}">Refrech</a></div>
 <div class="panel-heading">  Currency Details</div>
 <div class="panel-body"></div>
 
@@ -81,7 +84,7 @@
 </tr>
 <tr th:each="cur:${curcny}" >
 <td  >  <a th:href="@{/details/(par=${cur.id})}"> <span th:text="${cur.rank}"></span> </a>  </td>
-<td th:text="${cur.name}"> </td><td th:text="${cur.symbol}"> </td><td th:text="${cur.price_cny}"> </td><td th:text="${cur.h24_volume_eur}"> </td>
+<td th:text="${cur.name}"> </td><td th:text="${cur.symbol}"> </td><td th:text="${cur.price_cny}"> </td><td th:text="${cur.h24_volume_cny}"> </td>
 <td th:text="${cur.market_cap_cny}"> </td><td th:text="${cur.price_btc}"> </td><td th:text="${cur.percent_change_1h}"> </td>
 
 <td th:text="${cur.percent_change_24h}"> </td><td th:text="${cur.percent_change_7d}"> </td><td th:text="${cur.total_supply}"> </td>

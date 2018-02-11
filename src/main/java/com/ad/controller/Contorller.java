@@ -70,24 +70,25 @@ public class Contorller {
 		
 		if(fiat.equals("USD")) {
 			
-			CurrencyModel currency = iservice.Cryptocurrency_Details("https://api.coinmarketcap.com/v1/ticker/"+par);
+			CurrencyModel currency = iservice.Cryptocurrency_Details("https://api.coinmarketcap.com/v1/ticker/"+par+"/?convert="+fiat);
 			model.addAttribute("curusd", currency);
 			
 								}
+		
+		
+		if(fiat.equals("EUR")) {
 			
-			if(fiat.equals("EUR")) {
-				
-				List<CurrencyModel_EUR> currency = iservice.CryptocurrencyEUR_Top_100("https://api.coinmarketcap.com/v1/ticker/?https://api.coinmarketcap.com/v1/ticker/"+par+"/?convert="+fiat);
-				model.addAttribute("cureur", currency);
-				
-									}
+			CurrencyModel_EUR currency = iservice.CryptocurrencyEUR_Details("https://api.coinmarketcap.com/v1/ticker/"+par+"/?convert="+fiat);
+			model.addAttribute("cureur", currency);
+		
+								}
+		
+		if(fiat.equals("CNY")) {
 			
-			if(fiat.equals("CNY")) {
-				
-				List<CurrencyModel_CNY> currency = iservice.CryptocurrencyCNY_Top_100("https://api.coinmarketcap.com/v1/ticker/?https://api.coinmarketcap.com/v1/ticker/"+par+"/?convert="+fiat);
-				model.addAttribute("curcny", currency);
-				
-									}
+			CurrencyModel_CNY currency = iservice.CryptocurrencyCNY_Details("https://api.coinmarketcap.com/v1/ticker/"+par+"/?convert="+fiat);
+			model.addAttribute("curcny", currency);
+		
+								}
 	
 		
 		return "details";
